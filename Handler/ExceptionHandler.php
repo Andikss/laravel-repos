@@ -3,13 +3,14 @@
 namespace App\Exceptions;
 
 use Exception as BaseException;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Log;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandlers;
 
 class ExceptionHandler extends ExceptionHandlers
 {
-    public static function handle(BaseException $exception)
+    public static function handle(BaseException $exception): JsonResponse
     {
         $statusCode = $exception instanceof HttpException ? $exception->getStatusCode() : 500;
         $function   = __FUNCTION__;
