@@ -33,7 +33,7 @@ class AuthRepository implements AuthRepositoryInterface
                     $token = self::getToken($user);
 
                     return response()->json([
-                        'message'  => 'Login succeed',
+                        'message'  => 'Login Succeed',
                         'data'     => $user,
                         'token'    => $token,
                         'redirect' => '/'
@@ -64,7 +64,7 @@ class AuthRepository implements AuthRepositoryInterface
         }
     }
 
-    protected static function getToken(User $user)
+    protected static function getToken(User $user): string
     {
         $user  = User::find($user->id);
         $token = $user->createToken('auth_token')->plainTextToken;

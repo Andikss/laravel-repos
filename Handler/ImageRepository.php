@@ -14,6 +14,14 @@ interface ImageRepositoryInterface
     public function upload(UploadedFile $image, string $directory): string;
 }
 
+/**
+ * 2024-02-04 || @Andikss
+ * ==============================================================================
+ * I'm using Intervention Image  V.2.7 here. You could use any other version, 
+ * but I suggest using 2.7 anyway. Learn how to install it on Laravel bellow 
+ * => https://image.intervention.io/v3/introduction/frameworks
+*/
+
 class ImageRepository implements ImageRepositoryInterface
 {
     public function upload(UploadedFile $image, string $directory): string
